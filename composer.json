@@ -1,0 +1,20 @@
+{
+    "name": "ivancarlosti/icc-gg-llm-files-generator",
+    "description": "WordPress plugin that generates and serves llms.txt and llms-full.txt files for AI agents.",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Ivan Carlos",
+            "email": "ivan@ivancarlos.com.br",
+            "homepage": "https://ivancarlos.com.br"
+        }
+    ],
+    "require": {
+        "php": ">=8.1"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    }
+}

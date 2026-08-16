@@ -25,14 +25,14 @@ if ( ! class_exists( 'ICC_GG_LLM_Files_Generator_Github_Updater' ) ) {
 		 *
 		 * @var string
 		 */
-		const GITHUB_REPO = 'ivancarlosti/icc-gg-llm-files-generator';
+		const GITHUB_REPO = 'ivancarlosti/wordpressiccllmfiles';
 
 		/**
 		 * GitHub Releases API endpoint for the latest release.
 		 *
 		 * @var string
 		 */
-		const GITHUB_API_URL = 'https://api.github.com/repos/ivancarlosti/icc-gg-llm-files-generator/releases/latest';
+		const GITHUB_API_URL = 'https://api.github.com/repos/ivancarlosti/wordpressiccllmfiles/releases/latest';
 
 		/**
 		 * Site transient key used to cache the latest release data.
@@ -89,6 +89,16 @@ if ( ! class_exists( 'ICC_GG_LLM_Files_Generator_Github_Updater' ) ) {
 			$this->plugin_slug     = dirname( $plugin_file );
 			$this->current_version = $current_version;
 
+			/*
+			 * Hook both the read filter and the set filter:
+			 * - `site_transient_update_plugins` injects the plugin every time
+			 *   WordPress reads the update transient. This makes the native
+			 *   auto-update toggle appear immediately on the Plugins screen,
+			 *   without waiting for the transient to be saved by cron.
+			 * - `pre_set_site_transient_update_plugins` persists the data when
+			 *   WordPress saves the transient, which the cron auto-updater uses.
+			 */
+			add_filter( 'site_transient_update_plugins', array( $this, 'check_update' ) );
 			add_filter( 'pre_set_site_transient_update_plugins', array( $this, 'check_update' ) );
 			add_filter( 'plugins_api', array( $this, 'plugins_api_filter' ), 10, 3 );
 		}
@@ -100,7 +110,11 @@ if ( ! class_exists( 'ICC_GG_LLM_Files_Generator_Github_Updater' ) ) {
 		 * current). Populating `no_update` is required for WordPress 5.5+
 		 * automatic update support.
 		 *
-		 * @param mixed $transient The update_plugins transient being saved.
+		 * Used for both `site_transient_update_plugins` (transient read) and
+		 * `pre_set_site_transient_update_plugins` (transient save) so the plugin
+		 * appears in the transient whenever WordPress reads or stores it.
+		 *
+		 * @param mixed $transient The update_plugins transient being read or saved.
 		 * @return mixed
 		 */
 		public function check_update( $transient ) {
@@ -109,21 +123,29 @@ if ( ! class_exists( 'ICC_GG_LLM_Files_Generator_Github_Updater' ) ) {
 			}
 
 			$release = $this->get_latest_release();
+
 			if ( ! $release ) {
+				/*
+				 * If a previous successful check already recorded this plugin,
+				 * leave that entry untouched so a temporary GitHub failure never
+				 * masks a known update.
+				 */
+				if ( isset( $transient->response[ $this->plugin_file ] ) || isset( $transient->no_update[ $this->plugin_file ] ) ) {
+					return $transient;
+				}
+
+				/*
+				 * Otherwise inject a minimal `no_update` entry so WordPress marks
+				 * the plugin as update-supported and shows the native auto-update
+				 * toggle even before the first successful GitHub lookup.
+				 */
+				$transient->no_update[ $this->plugin_file ] = $this->build_fallback_item();
+
 				return $transient;
 			}
 
 			$new_version = $this->normalize_version( $release->tag_name );
-
-			$item              = new stdClass();
-			$item->slug        = $this->plugin_slug;
-			$item->plugin      = $this->plugin_file;
-			$item->new_version = $new_version;
-			$item->package     = $this->get_package_url( $release );
-			$item->url         = isset( $release->html_url ) ? $release->html_url : '';
-			$item->tested      = null;
-			$item->requires    = '';
-			$item->requires_php = '8.1';
+			$item        = $this->build_item( $new_version, $this->get_package_url( $release ), isset( $release->html_url ) ? $release->html_url : '' );
 
 			if ( version_compare( $this->current_version, $new_version, '<' ) ) {
 				$transient->response[ $this->plugin_file ] = $item;
@@ -132,6 +154,42 @@ if ( ! class_exists( 'ICC_GG_LLM_Files_Generator_Github_Updater' ) ) {
 			}
 
 			return $transient;
+		}
+
+		/**
+		 * Build a transient item from a GitHub release.
+		 *
+		 * @param string $new_version The normalized new version.
+		 * @param string $package     The direct ZIP download URL.
+		 * @param string $url         The release page URL.
+		 * @return stdClass
+		 */
+		private function build_item( $new_version, $package, $url ) {
+			$item               = new stdClass();
+			$item->slug         = $this->plugin_slug;
+			$item->plugin       = $this->plugin_file;
+			$item->new_version  = $new_version;
+			$item->package      = $package;
+			$item->url          = $url;
+			$item->tested       = null;
+			$item->requires     = '';
+			$item->requires_php = '8.1';
+
+			return $item;
+		}
+
+		/**
+		 * Build a fallback transient item used when GitHub is unreachable or the
+		 * repository has no releases yet.
+		 *
+		 * @return stdClass
+		 */
+		private function build_fallback_item() {
+			return $this->build_item(
+				$this->current_version,
+				'',
+				'https://github.com/' . self::GITHUB_REPO
+			);
 		}
 
 		/**

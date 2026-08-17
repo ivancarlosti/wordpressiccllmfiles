@@ -85,12 +85,3 @@ Go to **Settings > LLM Files Generator** and click the **Force Generate/Update F
 = What happens if the AI returns an error? =
 
 The plugin records the error in the last-error option and falls back to deterministic generation, so the previous files are never left broken.
-
-== Changelog ==
-
-= 1.0.0 =
-* Initial release.
-* Generate and serve `/llms.txt` and `/llms-full.txt`.
-* Optional OpenAI-compatible AI integration with diff-based incremental updates and full regeneration fallback.
-* Automatic updates on post/page/CPT changes with debouncing.
-* Admin settings page with delivery toggles, AI configuration, and force generation.

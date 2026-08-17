@@ -344,8 +344,8 @@ class ICC_GG_LLM_Files_Generator_Settings_Page {
 			<hr style="margin-top: 30px;">
 			<p style="text-align: center; color: #666; font-size: 12px;">
 				<?php esc_html_e( 'ICC.gg LLM Files Generator - llms.txt / llms-full.txt Generator for WordPress', 'icc-gg-llm-files-generator' ); ?><br>
-				<a href="https://github.com/ivancarlosti/icc-gg-llm-files-generator" target="_blank" rel="noopener noreferrer">
-					github.com/ivancarlosti/icc-gg-llm-files-generator
+				<a href="https://github.com/ivancarlosti/wordpressiccllmfiles" target="_blank" rel="noopener noreferrer">
+					github.com/ivancarlosti/wordpressiccllmfiles
 				</a><br>
 				<?php echo esc_html( sprintf( 'v%s', ICC_GG_LLM_Files_Generator::VERSION ) ); ?>
 			</p>

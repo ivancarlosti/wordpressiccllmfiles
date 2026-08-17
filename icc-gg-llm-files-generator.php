@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @package   ICC_GG_LLM_Files_Generator
  * @category  General
  * @author    Ivan Carlos
- * @copyright 2025-2026 Ivan Carlos
+ * @copyright 2007-2026 Ivan Carlos Consultoria
  * @license   http://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  * @link      https://github.com/ivancarlosti/wordpressiccllmfiles
  *
@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Requires at least: 5.0
  * Requires PHP:      8.1
  * Author:            ivancarlosti
- * Author URI:        https://ivancarlos.me
+ * Author URI:        https://ivancarlos.com.br
  * Text Domain:       icc-gg-llm-files-generator
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt

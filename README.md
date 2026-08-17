@@ -9,7 +9,7 @@ A WordPress plugin that generates and serves `llms.txt` and `llms-full.txt` file
 [![Downloads](https://img.shields.io/github/downloads/ivancarlosti/icc-gg-llm-files-generator/total?label=Downloads&color=success)](https://github.com/ivancarlosti/icc-gg-llm-files-generator/releases)
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/m/ivancarlosti/icc-gg-llm-files-generator?label=Activity)](https://github.com/ivancarlosti/icc-gg-llm-files-generator/pulse)
 [![GitHub Issues](https://img.shields.io/github/issues/ivancarlosti/icc-gg-llm-files-generator?label=Issues&color=orange)](https://github.com/ivancarlosti/icc-gg-llm-files-generator/issues)  
-[![License](https://img.shields.io/github/license/ivancarlosti/icc-gg-llm-files-generator?label=License)](LICENSE)
+[![License](https://img.shields.io/github/license/ivancarlosti/icc-gg-llm-files-generator?label=License)](LICENSE.md)
 [![GitHub last commit](https://img.shields.io/github/last-commit/ivancarlosti/icc-gg-llm-files-generator?label=Last%20Commit)](https://github.com/ivancarlosti/icc-gg-llm-files-generator/commits)
 [![Security](https://img.shields.io/badge/Security-View%20Here-purple)](https://github.com/ivancarlosti/icc-gg-llm-files-generator/security)
 [![Code of Conduct](https://img.shields.io/badge/Code%20of%20Conduct-2.1-4baaaa)](https://github.com/ivancarlosti/icc-gg-llm-files-generator?tab=coc-ov-file)
@@ -153,4 +153,4 @@ The plugin records the error in the last-error option and falls back to determin
 [it]: https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#configuring-the-template-chooser
 [prt]: https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository
 [funding]: https://docs.github.com/en/articles/displaying-a-sponsor-button-in-your-repository
-[ivancarlos]: https://ivancarlos.me
+[ivancarlos]: https://ivancarlos.com.br

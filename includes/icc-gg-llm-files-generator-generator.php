@@ -5,7 +5,7 @@
  * @package   ICC_GG_LLM_Files_Generator
  * @category  Generation
  * @author    Ivan Carlos
- * @copyright 2025-2026 Ivan Carlos
+ * @copyright 2007-2026 Ivan Carlos Consultoria
  * @license   http://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 

@@ -58,14 +58,14 @@ if ( ! class_exists( 'ICC_GG_LLM_Files_Generator_Github_Updater' ) ) {
 		const CACHE_DURATION = 43200;
 
 		/**
-		 * Plugin basename, e.g. icc-gg-llm-files-generator/icc-gg-llm-files-generator.php.
+		 * Plugin basename, e.g. wordpressiccllmfiles/icc-gg-llm-files-generator.php.
 		 *
 		 * @var string
 		 */
 		private $plugin_file;
 
 		/**
-		 * Plugin slug (folder name), e.g. icc-gg-llm-files-generator.
+		 * Plugin slug (folder name), e.g. wordpressiccllmfiles.
 		 *
 		 * @var string
 		 */

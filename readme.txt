@@ -34,7 +34,7 @@ Translations are managed through the WordPress.org translation platform. The plu
 
 Much of the documentation can be found on the **Settings > LLM Files Generator** dashboard page.
 
-Please submit issues to the Github repo: https://github.com/ivancarlosti/icc-gg-llm-files-generator
+Please submit issues to the Github repo: https://github.com/ivancarlosti/wordpressiccllmfiles
 
 == Installation ==
 

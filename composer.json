@@ -1,5 +1,5 @@
 {
-    "name": "ivancarlosti/icc-gg-llm-files-generator",
+    "name": "ivancarlosti/wordpressiccllmfiles",
     "description": "WordPress plugin that generates and serves llms.txt and llms-full.txt files for AI agents.",
     "type": "wordpress-plugin",
     "license": "GPL-2.0-or-later",

@@ -14,11 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @author    Ivan Carlos
  * @copyright 2025-2026 Ivan Carlos
  * @license   http://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
- * @link      https://github.com/ivancarlosti/icc-gg-llm-files-generator
+ * @link      https://github.com/ivancarlosti/wordpressiccllmfiles
  *
  * @wordpress-plugin
  * Plugin Name:       ICC.gg LLM Files Generator
- * Plugin URI:        https://github.com/ivancarlosti/icc-gg-llm-files-generator
+ * Plugin URI:        https://github.com/ivancarlosti/wordpressiccllmfiles
  * Description:       Generates and serves llms.txt and llms-full.txt files for AI agents, with optional AI-assisted content generation and automatic updates.
  * Version:           1.0.0
  * Requires at least: 5.0
@@ -279,6 +279,9 @@ register_deactivation_hook( __FILE__, array( 'ICC_GG_LLM_Files_Generator', 'deac
 
 // Provide publicly accessible plugin helper functions.
 require_once 'includes/functions.php';
+
+add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'icc_gg_llm_files_generator_add_settings_link' );
+add_filter( 'plugin_row_meta', 'icc_gg_llm_files_generator_add_plugin_row_meta', 10, 2 );
 
 /**
  * Initialize the GitHub updater.

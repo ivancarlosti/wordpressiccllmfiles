@@ -29,7 +29,7 @@ A WordPress plugin that generates and serves `llms.txt` and `llms-full.txt` file
 ## Requirements
 
 - WordPress 5.0+
-- PHP 8.1+
+- PHP 8.2+
 - Optional: an OpenAI-compatible chat completions API for AI-assisted generation
 
 ## Installation

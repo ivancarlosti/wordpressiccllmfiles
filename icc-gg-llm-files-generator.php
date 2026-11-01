@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Description:       Generates and serves llms.txt and llms-full.txt files for AI agents, with optional AI-assisted content generation and automatic updates.
  * Version:           1.0.0
  * Requires at least: 5.0
- * Requires PHP:      8.1
+ * Requires PHP:      8.2
  * Author:            ivancarlosti
  * Author URI:        https://ivancarlos.com.br
  * Text Domain:       icc-gg-llm-files-generator
@@ -61,6 +61,66 @@ Notes
   - icc-gg-llm-files-generator-last-error             - the most recent generation error (admin-facing).
 */
 
+
+/*
+ * Hard requirement: PHP 8.2+.
+ *
+ * Kept in sync with the "Requires PHP" plugin header, readme.txt and
+ * composer.json. WordPress validates the header on install and activation, but
+ * a site can still auto-update the plugin while running an older PHP version,
+ * so the plugin disables itself and explains why instead of failing later.
+ */
+define( 'ICC_GG_LLM_FILES_GENERATOR_MIN_PHP', '8.2' );
+
+if ( version_compare( PHP_VERSION, ICC_GG_LLM_FILES_GENERATOR_MIN_PHP, '<' ) ) {
+
+	/**
+	 * Admin notice shown when the site runs an unsupported PHP version.
+	 *
+	 * @return void
+	 */
+	function icc_gg_llm_files_generator_php_version_notice() {
+		if ( ! current_user_can( 'activate_plugins' ) ) {
+			return;
+		}
+
+		printf(
+			'<div class="notice notice-error"><p>%s</p></div>',
+			esc_html(
+				sprintf(
+					// translators: 1: plugin name, 2: required PHP version, 3: current PHP version.
+					__( '%1$s requires PHP %2$s or later. This site runs PHP %3$s, so the plugin has been deactivated.', 'icc-gg-llm-files-generator' ),
+					'ICC.gg LLM Files Generator',
+					ICC_GG_LLM_FILES_GENERATOR_MIN_PHP,
+					PHP_VERSION
+				)
+			)
+		);
+	}
+
+	/**
+	 * Deactivate the plugin when the site runs an unsupported PHP version.
+	 *
+	 * @return void
+	 */
+	function icc_gg_llm_files_generator_php_version_deactivate() {
+		if ( ! current_user_can( 'activate_plugins' ) ) {
+			return;
+		}
+
+		deactivate_plugins( plugin_basename( __FILE__ ) );
+
+		// Drop the "Plugin activated." notice for a plugin that never started.
+		if ( isset( $_GET['activate'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			unset( $_GET['activate'] );
+		}
+	}
+
+	add_action( 'admin_notices', 'icc_gg_llm_files_generator_php_version_notice' );
+	add_action( 'admin_init', 'icc_gg_llm_files_generator_php_version_deactivate' );
+
+	return;
+}
 
 /**
  * ICC_GG_LLM_Files_Generator class.

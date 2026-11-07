@@ -39,6 +39,17 @@ A WordPress plugin that generates and serves `llms.txt` and `llms-full.txt` file
 3. Go to **Settings > LLM Files Generator** and configure the plugin to meet your needs.
 4. Click **Force Generate/Update Files** to generate the files immediately.
 
+## Updating
+
+The plugin updates itself from [GitHub Releases](https://github.com/ivancarlosti/wordpressiccllmfiles/releases):
+
+1. Open **Plugins → Installed Plugins** and click **Check for updates** in the plugin row (the same link is in the settings page footer). It performs a real, forced request to the GitHub API — the 12 hour release cache is bypassed, so the answer is fresh.
+2. The result is reported in a notice: a newer release offers **Update now** (the native WordPress upgrader) plus a link to the release notes, otherwise the plugin confirms you are already running the latest version.
+3. Nothing else changes: updates also show up in **Dashboard → Updates**, work with `wp plugin update icc-gg-llm-files-generator` and can be applied automatically by WordPress cron.
+4. Use the `icc-gg-llm-files-generator.zip` asset when updating by hand — its root folder is the plugin folder, so it replaces the current copy. The other archives attached to a release (`wordpressiccllmfiles-<version>.zip`, the generated source archive) unpack several top level entries and fail with *"The package contains more than one folder."*
+
+When GitHub cannot be reached the last known answer is kept, retries are throttled for one hour, and the updater never breaks the Plugins screen. See [`docs/updates.md`](docs/updates.md) for the full flow.
+
 ## Quick Setup
 
 The plugin generates `/llms.txt` and `/llms-full.txt` from your live site data automatically. AI-assisted generation is optional.

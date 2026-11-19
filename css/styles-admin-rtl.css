@@ -1,0 +1,9 @@
+/* Right-to-left overrides for the settings page. */
+.icc-gg-llm-files-generator-force-generate-summary {
+	text-align: right;
+}
+
+.icc-gg-llm-files-generator-force-generate-content {
+	border-left: 0;
+	border-right: 4px solid #72aee6;
+}

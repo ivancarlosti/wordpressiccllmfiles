@@ -1,0 +1,332 @@
+# Copyright (C) 2026 ICC.gg
+# This file is distributed under the same license as the ICC.gg LLM Files Generator package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ICC.gg LLM Files Generator 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/ivancarlosti/wordpressiccllmfiles/issues\n"
+"POT-Creation-Date: 2026-11-19 12:00+0000\n"
+"PO-Revision-Date: 2026-11-19 12:00+0000\n"
+"Last-Translator: ICC.gg <https://ivancarlos.com.br>\n"
+"Language-Team: ICC.gg\n"
+"Language: es_MX\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: icc-gg-llm-files-generator\n"
+
+#. translators: 1: plugin name, 2: required PHP version, 3: current PHP version.
+#: icc-gg-llm-files-generator.php:99
+#, php-format
+msgid ""
+"%1$s requires PHP %2$s or later. This site runs PHP %3$s, so the plugin has "
+"been deactivated."
+msgstr ""
+"El %1$s requiere PHP %2$s o superior. Este sitio ejecuta PHP %3$s, "
+"por lo que el plugin se ha desactivado."
+
+#: includes/functions.php:53
+msgid "Settings"
+msgstr "Ajustes"
+
+#: includes/functions.php:80
+#: includes/icc-gg-llm-files-generator-settings-page.php:364
+msgid "Check for updates"
+msgstr "Buscar actualizaciones"
+
+#: includes/functions.php:87 includes/functions.php:174
+#: includes/icc-gg-llm-files-generator-settings-page.php:388
+msgid "Release notes"
+msgstr "Notas de la versión"
+
+#: includes/functions.php:104
+msgid "Sorry, you are not allowed to check for plugin updates on this site."
+msgstr ""
+"Lo sentimos, no tienes permiso para buscar actualizaciones de plugins "
+"en este sitio."
+
+#: includes/functions.php:110
+msgid "The update checker is not available."
+msgstr "El verificador de actualizaciones no está disponible."
+
+#. translators: 1: New version number, 2: Installed version number.
+#: includes/functions.php:155
+#, php-format
+msgid ""
+"<strong>ICC.gg LLM Files Generator %1$s is available.</strong> You are "
+"running version %2$s."
+msgstr ""
+"<strong>ICC.gg LLM Files Generator %1$s ya está disponible.</strong> "
+"Estás ejecutando la versión %2$s."
+
+#: includes/functions.php:166
+#: includes/icc-gg-llm-files-generator-settings-page.php:382
+msgid "Update now"
+msgstr "Actualizar ahora"
+
+#. translators: %s: Installed version number.
+#: includes/functions.php:193
+#, php-format
+msgid "ICC.gg LLM Files Generator is up to date (version %s)."
+msgstr "ICC.gg LLM Files Generator está actualizado (versión %s)."
+
+#: includes/functions.php:204
+msgid ""
+"The update check could not reach GitHub. Please try again in a few minutes."
+msgstr ""
+"No se pudo conectar con GitHub para buscar actualizaciones. "
+"Inténtalo de nuevo en unos minutos."
+
+#: includes/icc-gg-llm-files-generator-content-collector.php:118
+msgid "(removed item)"
+msgstr "(elemento eliminado)"
+
+#: includes/icc-gg-llm-files-generator-diff-applier.php:45
+msgid "Diff operations must be a JSON object."
+msgstr "Las operaciones de diff deben ser un objeto JSON."
+
+#. translators: %s: operations key
+#: includes/icc-gg-llm-files-generator-diff-applier.php:64
+#, php-format
+msgid "Diff operations key \"%s\" must be an array of strings."
+msgstr "La clave \"%s\" de las operaciones de diff debe ser un arreglo de cadenas."
+
+#: includes/icc-gg-llm-files-generator-diff-applier.php:74
+msgid "Diff operations entries must be strings."
+msgstr "Las entradas de las operaciones de diff deben ser cadenas."
+
+#: includes/icc-gg-llm-files-generator-diff-applier.php:85
+msgid "The AI returned an empty diff."
+msgstr "La IA devolvió un diff vacío."
+
+#: includes/icc-gg-llm-files-generator-diff-applier.php:104
+msgid "Current file content must be a string."
+msgstr "El contenido actual del archivo debe ser una cadena."
+
+#: includes/icc-gg-llm-files-generator-generator.php:311
+msgid "The AI diff produced empty content."
+msgstr "El diff de la IA produjo contenido vacío."
+
+#. translators: %s: file name
+#: includes/icc-gg-llm-files-generator-generator.php:378
+#, php-format
+msgid ""
+"You maintain the %s file for a WordPress site. You return ONLY strict JSON "
+"describing edits to the existing file."
+msgstr ""
+"Tú mantienes el archivo %s de un sitio de WordPress. Devuelves SOLO "
+"JSON estricto que describe las ediciones al archivo existente."
+
+#: includes/icc-gg-llm-files-generator-generator.php:387
+msgid ""
+"Return ONLY a JSON object with keys \"insert\" (array of strings to add) and "
+"\"remove\" (array of exact strings to delete). Example: {\"insert\":[\"- New "
+"page: Title (https://example.com/page)\"],\"remove\":[\"- Old page: Title "
+"(https://example.com/page)\"]}. Do not include Markdown fences or commentary."
+msgstr ""
+"Devuelve SOLO un objeto JSON con las claves \"insert\" (arreglo de "
+"cadenas para agregar) y \"remove\" (arreglo de cadenas exactas para "
+"eliminar). Ejemplo: {\"insert\":[\"- New page: Title "
+"(https://example.com/page)\"],\"remove\":[\"- Old page: Title "
+"(https://example.com/page)\"]}. No incluyas bloques de Markdown ni "
+"comentarios."
+
+#: includes/icc-gg-llm-files-generator-generator.php:416
+msgid ""
+"You generate SEO and LLM-friendly plain-text Markdown files for a WordPress "
+"website."
+msgstr ""
+"Tú generas archivos Markdown de texto plano optimizados para SEO y "
+"para LLM de un sitio web WordPress."
+
+#. translators: %s: file name
+#: includes/icc-gg-llm-files-generator-generator.php:420
+#, php-format
+msgid ""
+"Generate the complete %s file content for the following WordPress site. Use "
+"the llms.txt convention: an H1 site title, a blockquote summary, and "
+"Markdown lists of links with short descriptions."
+msgstr ""
+"Genera el contenido completo del archivo %s para el siguiente sitio "
+"de WordPress. Usa la convención llms.txt: un título H1 del sitio, "
+"un resumen en cita y listas Markdown de enlaces con descripciones breves."
+
+#: includes/icc-gg-llm-files-generator-generator.php:424
+msgid ""
+"Return ONLY the raw file content. Do not include Markdown fences, "
+"explanations or commentary."
+msgstr ""
+"Devuelve SOLO el contenido sin formato del archivo. No incluyas "
+"bloques de Markdown, explicaciones ni comentarios."
+
+#: includes/icc-gg-llm-files-generator-generator.php:455
+msgid "The AI API URL is not configured."
+msgstr "La URL de la API de IA no está configurada."
+
+#: includes/icc-gg-llm-files-generator-generator.php:462
+msgid "The AI API key is not configured."
+msgstr "La clave de la API de IA no está configurada."
+
+#. translators: %s: error message
+#: includes/icc-gg-llm-files-generator-generator.php:492
+#, php-format
+msgid "AI request failed: %s"
+msgstr "La solicitud a la IA falló: %s"
+
+#. translators: 1: HTTP status code, 2: response body
+#: includes/icc-gg-llm-files-generator-generator.php:506
+#, php-format
+msgid "The AI API returned HTTP %1$d: %2$s"
+msgstr "La API de IA devolvió HTTP %1$d: %2$s"
+
+#: includes/icc-gg-llm-files-generator-generator.php:519
+msgid "The AI API returned a malformed response."
+msgstr "La API de IA devolvió una respuesta mal formada."
+
+#: includes/icc-gg-llm-files-generator-generator.php:550
+msgid "The AI returned invalid JSON operations."
+msgstr "La IA devolvió operaciones JSON no válidas."
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:117
+#: includes/icc-gg-llm-files-generator-settings-page.php:118
+msgid "LLM Files Generator"
+msgstr "Generador de archivos LLM"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:142
+msgid "File Delivery"
+msgstr "Entrega de archivos"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:149
+msgid "AI Settings"
+msgstr "Ajustes de IA"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:209
+msgid "Enable llms.txt"
+msgstr "Activar llms.txt"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:210
+msgid "Deliver the concise /llms.txt index to visitors and AI agents."
+msgstr "Entrega el índice conciso /llms.txt a visitantes y agentes de IA."
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:215
+msgid "Enable llms-full.txt"
+msgstr "Activar llms-full.txt"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:216
+msgid "Deliver the full /llms-full.txt content to visitors and AI agents."
+msgstr ""
+"Entrega el contenido completo de /llms-full.txt a visitantes y "
+"agentes de IA."
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:221
+msgid "AI API URL"
+msgstr "URL de la API de IA"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:222
+msgid ""
+"The OpenAI-compatible chat completions endpoint URL. Leave empty to disable "
+"AI-assisted generation."
+msgstr ""
+"La URL del endpoint de chat completions compatible con OpenAI. "
+"Déjala vacía para desactivar la generación asistida por IA."
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:231
+msgid "API Key"
+msgstr "Clave de la API"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:232
+msgid ""
+"The API key used to authenticate with the AI API. Stored in the WordPress "
+"options table."
+msgstr ""
+"La clave de la API usada para autenticarse con la API de IA. Se "
+"almacena en la tabla de opciones de WordPress."
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:237
+msgid "Model"
+msgstr "Modelo"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:238
+msgid "The AI model name used for chat completions."
+msgstr "El nombre del modelo de IA usado para chat completions."
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:334
+msgid "Notes"
+msgstr "Notas"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:337
+msgid "llms.txt"
+msgstr "llms.txt"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:341
+msgid "llms-full.txt"
+msgstr "llms-full.txt"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:348
+msgid "Last generation warning"
+msgstr "Advertencia de la última generación"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:356
+msgid ""
+"ICC.gg LLM Files Generator - llms.txt / llms-full.txt Generator for WordPress"
+msgstr ""
+"ICC.gg LLM Files Generator - Generador de llms.txt / llms-full.txt "
+"para WordPress"
+
+#. translators: %s: New version number.
+#: includes/icc-gg-llm-files-generator-settings-page.php:374
+#, php-format
+msgid "Update available: v%s"
+msgstr "Actualización disponible: v%s"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:467
+msgid "Example"
+msgstr "Ejemplo"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:480
+msgid "Control which generated files are delivered to visitors and AI agents."
+msgstr "Controla qué archivos generados se entregan a visitantes y agentes de IA."
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:489
+msgid ""
+"Configure an OpenAI-compatible chat completions API to assist with file "
+"generation. Leave the API URL empty to use deterministic generation only."
+msgstr ""
+"Configura una API de chat completions compatible con OpenAI para "
+"ayudar en la generación de archivos. Deja la URL de la API vacía "
+"para usar solo la generación determinista."
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:511
+msgid "Security check failed. Please try again."
+msgstr "La verificación de seguridad falló. Inténtalo de nuevo."
+
+#. translators: %s: warning message
+#: includes/icc-gg-llm-files-generator-settings-page.php:538
+#, php-format
+msgid "Files generated using the deterministic fallback. AI warning: %s"
+msgstr "Archivos generados usando el respaldo determinista. Advertencia de IA: %s"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:549
+msgid "Files generated successfully!"
+msgstr "¡Archivos generados correctamente!"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:564
+msgid "Generate Files"
+msgstr "Generar archivos"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:568
+msgid ""
+"Click the button below to generate (or regenerate) the llms.txt and llms-"
+"full.txt files immediately."
+msgstr ""
+"Haz clic en el botón de abajo para generar (o regenerar) los "
+"archivos llms.txt y llms-full.txt de inmediato."
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:572
+msgid "Last updated"
+msgstr "Última actualización"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:578
+msgid "Force Generate/Update Files"
+msgstr "Forzar generación/actualización de archivos"

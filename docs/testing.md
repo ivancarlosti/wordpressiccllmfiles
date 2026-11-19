@@ -17,6 +17,46 @@ package from the layout mistake that breaks updates:
 sh tests/validate-plugin-layout.sh
 ```
 
+## Translation catalogs
+
+Every catalog in `languages/` must be fully translated and structurally valid:
+
+```bash
+sh tests/build-translations.sh
+```
+
+The script compiles each `.po` into `.mo` with `msgfmt --check --check-format`, rejects catalogs
+that report `fuzzy`, `untranslated` or `obsolete` entries, and fails when a catalog is missing a
+string that the template has. Add `--check-pot` to also re-extract the strings with `xgettext` and
+fail when `languages/icc-gg-llm-files-generator.pot` no longer matches the source:
+
+```bash
+sh tests/build-translations.sh --check-pot
+```
+
+A catalog that is 99% translated still passes WordPress (each missing string silently falls back to
+English), which is why the script treats any untranslated entry as an error. The same run parses
+every compiled `.mo` with `tests/check-translations.php`, which needs no WordPress and no installed
+locales, and asserts the header (UTF-8, `Language:`, `Plural-Forms:`), that no entry is empty, that
+printf placeholders and `<strong>` markup survive translation, and that a known string resolves to
+the expected translation per locale:
+
+```bash
+php tests/check-translations.php
+```
+
+`tests/check-i18n-bootstrap.php` checks the wiring rather than the strings: it stubs the WordPress
+functions the plugin calls while loading, requires the main plugin file and asserts that
+`load_plugin_textdomain()` points at this plugin's `languages/` folder, that the `plugin_locale`
+filter maps `pt-BR`, `es-MX`, `zh-CN`, `ar_SA` and `en_GB` to the shipped catalogs, and that the RTL
+filters stay inert for left-to-right locales.
+
+```bash
+php tests/check-i18n-bootstrap.php
+```
+
+See [`docs/i18n.md`](i18n.md) for the locale table, the RTL behaviour and the full update workflow.
+
 ## Release ZIP check
 
 The only asset WordPress can install is `<slug>.zip`, whose single root folder is the plugin folder:

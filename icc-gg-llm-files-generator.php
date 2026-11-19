@@ -26,6 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Author:            ivancarlosti
  * Author URI:        https://ivancarlos.com.br
  * Text Domain:       icc-gg-llm-files-generator
+ * Domain Path:       /languages
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  */
@@ -59,6 +60,12 @@ Notes
   - icc-gg-llm-files-generator-llms-full-txt          - generated llms-full.txt content.
   - icc-gg-llm-files-generator-last-updated           - timestamp of the last successful generation.
   - icc-gg-llm-files-generator-last-error             - the most recent generation error (admin-facing).
+
+  Translations
+  - Bundled catalogs live in languages/ and are loaded on plugins_loaded (5).
+  - Supported locales: en-US (fallback), pt-BR, es-MX, fr-FR, zh-CN, hi-IN and ar-SA.
+  - Arabic sets dir="rtl" on <html>, adds the rtl admin body class and loads
+    css/styles-admin-rtl.css. See docs/i18n.md.
 */
 
 
@@ -131,6 +138,116 @@ if ( version_compare( PHP_VERSION, ICC_GG_LLM_FILES_GENERATOR_MIN_PHP, '<' ) ) {
  * to build the native WordPress upgrade URL.
  */
 define( 'ICC_GG_LLM_FILES_GENERATOR_BASENAME', plugin_basename( __FILE__ ) );
+
+/**
+ * Loads the bundled translations.
+ *
+ * WordPress only auto-loads language packs installed under
+ * `wp-content/languages/plugins`. The plugin ships its own catalogs in
+ * `languages/`, so they must be loaded explicitly.
+ *
+ * @return void
+ */
+function icc_gg_llm_files_generator_load_textdomain() {
+	load_plugin_textdomain(
+		'icc-gg-llm-files-generator',
+		false,
+		dirname( ICC_GG_LLM_FILES_GENERATOR_BASENAME ) . '/languages'
+	);
+}
+add_action( 'plugins_loaded', 'icc_gg_llm_files_generator_load_textdomain', 5 );
+
+/**
+ * Maps the locales supported by the bundled catalogs to WordPress locales.
+ *
+ * The documented codes use hyphens (`pt-BR`, `ar-SA`), while WordPress
+ * reports locales with underscores (`pt_BR`, `ar_SA`). Every English variant
+ * resolves to the `en_US` catalog, which is the fallback language (an identity
+ * catalog, so untranslated locales keep the source English strings). Arabic
+ * variants are mapped to `ar` so the RTL catalog is used for `ar_SA`, `ar_AE`
+ * and similar locales.
+ *
+ * @param string $locale Locale requested by WordPress.
+ * @param string $domain Text domain being loaded.
+ *
+ * @return string
+ */
+function icc_gg_llm_files_generator_plugin_locale( $locale, $domain ) {
+	if ( 'icc-gg-llm-files-generator' !== $domain ) {
+		return $locale;
+	}
+
+	$normalized = str_replace( '-', '_', (string) $locale );
+
+	$supported = array( 'en_US', 'pt_BR', 'es_MX', 'fr_FR', 'zh_CN', 'hi_IN' );
+
+	if ( in_array( $normalized, $supported, true ) ) {
+		return $normalized;
+	}
+
+	if ( preg_match( '/^en([_-]|$)/i', $normalized ) ) {
+		return 'en_US';
+	}
+
+	if ( preg_match( '/^ar([_-]|$)/i', $normalized ) ) {
+		return 'ar';
+	}
+
+	return $locale;
+}
+add_filter( 'plugin_locale', 'icc_gg_llm_files_generator_plugin_locale', 10, 2 );
+
+/**
+ * Tells whether the current locale is written right-to-left.
+ *
+ * `is_rtl()` follows the site locale, which is wrong in the admin: a user whose
+ * profile language is Arabic sees an LTR admin on an English site. This uses
+ * the locale that actually drives translations.
+ *
+ * @return bool
+ */
+function icc_gg_llm_files_generator_is_rtl_locale() {
+	$locale = function_exists( 'determine_locale' ) ? determine_locale() : get_locale();
+
+	return (bool) preg_match( '/^(ar|fa|he|ur|ckb|dv|ps|sd|ug|yi)([_-]|$)/i', (string) $locale );
+}
+
+/**
+ * Adds `dir="rtl"` when the active locale is right-to-left.
+ *
+ * WordPress core does this for the locales it ships, but `ar_SA` and other
+ * Arabic variants may not be recognised. The filter is defensive: it never
+ * overrides a direction that core already set.
+ *
+ * @param string $output  Language attributes.
+ * @param string $doctype Document type.
+ *
+ * @return string
+ */
+function icc_gg_llm_files_generator_language_attributes( $output, $doctype ) {
+	if ( icc_gg_llm_files_generator_is_rtl_locale() && false === stripos( $output, 'dir=' ) ) {
+		$output .= ' dir="rtl"';
+	}
+
+	return $output;
+}
+add_filter( 'language_attributes', 'icc_gg_llm_files_generator_language_attributes', 10, 2 );
+
+/**
+ * Adds the `rtl` body class for right-to-left locales.
+ *
+ * @param string $classes Space-separated list of body classes.
+ *
+ * @return string
+ */
+function icc_gg_llm_files_generator_admin_body_class( $classes ) {
+	if ( icc_gg_llm_files_generator_is_rtl_locale() && false === strpos( $classes, 'rtl' ) ) {
+		$classes .= ' rtl';
+	}
+
+	return $classes;
+}
+add_filter( 'admin_body_class', 'icc_gg_llm_files_generator_admin_body_class' );
 
 /**
  * ICC_GG_LLM_Files_Generator class.

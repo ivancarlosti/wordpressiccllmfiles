@@ -302,6 +302,16 @@ class ICC_GG_LLM_Files_Generator_Settings_Page {
 
 		wp_enqueue_style( 'icc-gg-llm-files-generator-admin', plugin_dir_url( __DIR__ ) . 'css/styles-admin.css', array(), ICC_GG_LLM_Files_Generator::VERSION, 'all' );
 
+		if ( function_exists( 'icc_gg_llm_files_generator_is_rtl_locale' ) && icc_gg_llm_files_generator_is_rtl_locale() ) {
+			wp_enqueue_style(
+				'icc-gg-llm-files-generator-admin-rtl',
+				plugin_dir_url( __DIR__ ) . 'css/styles-admin-rtl.css',
+				array( 'icc-gg-llm-files-generator-admin' ),
+				ICC_GG_LLM_Files_Generator::VERSION,
+				'all'
+			);
+		}
+
 		$llms_txt_url = home_url( '/llms.txt' );
 		$llms_full_txt_url = home_url( '/llms-full.txt' );
 		?>

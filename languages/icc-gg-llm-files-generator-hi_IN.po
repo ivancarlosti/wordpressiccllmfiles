@@ -1,0 +1,395 @@
+# Copyright (C) 2026 ICC.gg
+# This file is distributed under the same license as the ICC.gg LLM Files Generator package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ICC.gg LLM Files Generator 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/ivancarlosti/wordpressiccllmfiles/issues\n"
+"POT-Creation-Date: 2026-11-19 12:00+0000\n"
+"PO-Revision-Date: 2026-11-19 12:00+0000\n"
+"Last-Translator: ICC.gg <https://ivancarlos.com.br>\n"
+"Language-Team: ICC.gg\n"
+"Language: hi_IN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: icc-gg-llm-files-generator\n"
+
+#. translators: 1: plugin name, 2: required PHP version, 3: current PHP version.
+#: icc-gg-llm-files-generator.php:99
+#, php-format
+msgid ""
+"%1$s requires PHP %2$s or later. This site runs PHP %3$s, so the plugin has "
+"been deactivated."
+msgstr ""
+"%1$s के लिए PHP %2$s या उससे नया "
+"संस्करण आवश्यक है। यह "
+"साइट PHP %3$s चला रही है, इसलिए "
+"प्लगइन को निष्क्रिय कर "
+"दिया गया है।"
+
+#: includes/functions.php:53
+msgid "Settings"
+msgstr "सेटिंग्स"
+
+#: includes/functions.php:80
+#: includes/icc-gg-llm-files-generator-settings-page.php:364
+msgid "Check for updates"
+msgstr "अपडेट जाँचें"
+
+#: includes/functions.php:87 includes/functions.php:174
+#: includes/icc-gg-llm-files-generator-settings-page.php:388
+msgid "Release notes"
+msgstr "रिलीज़ नोट्स"
+
+#: includes/functions.php:104
+msgid "Sorry, you are not allowed to check for plugin updates on this site."
+msgstr ""
+"क्षमा करें, आपको इस साइट पर "
+"प्लगइन अपडेट जाँचने की "
+"अनुमति नहीं है।"
+
+#: includes/functions.php:110
+msgid "The update checker is not available."
+msgstr "अपडेट चेकर उपलब्ध नहीं है।"
+
+#. translators: 1: New version number, 2: Installed version number.
+#: includes/functions.php:155
+#, php-format
+msgid ""
+"<strong>ICC.gg LLM Files Generator %1$s is available.</strong> You are "
+"running version %2$s."
+msgstr ""
+"<strong>ICC.gg LLM Files Generator %1$s उपलब्ध "
+"है।</strong> आप संस्करण %2$s चला "
+"रहे हैं।"
+
+#: includes/functions.php:166
+#: includes/icc-gg-llm-files-generator-settings-page.php:382
+msgid "Update now"
+msgstr "अभी अपडेट करें"
+
+#. translators: %s: Installed version number.
+#: includes/functions.php:193
+#, php-format
+msgid "ICC.gg LLM Files Generator is up to date (version %s)."
+msgstr ""
+"ICC.gg LLM Files Generator अद्यतित है "
+"(संस्करण %s)।"
+
+#: includes/functions.php:204
+msgid ""
+"The update check could not reach GitHub. Please try again in a few minutes."
+msgstr ""
+"अपडेट जाँच GitHub तक नहीं "
+"पहुँच सकी। कृपया कुछ "
+"मिनटों में पुनः प्रयास करें।"
+
+#: includes/icc-gg-llm-files-generator-content-collector.php:118
+msgid "(removed item)"
+msgstr "(हटाया गया आइटम)"
+
+#: includes/icc-gg-llm-files-generator-diff-applier.php:45
+msgid "Diff operations must be a JSON object."
+msgstr ""
+"डिफ़ ऑपरेशन JSON ऑब्जेक्ट "
+"होना चाहिए।"
+
+#. translators: %s: operations key
+#: includes/icc-gg-llm-files-generator-diff-applier.php:64
+#, php-format
+msgid "Diff operations key \"%s\" must be an array of strings."
+msgstr ""
+"डिफ़ ऑपरेशन की कुंजी \"%s\" "
+"स्ट्रिंग्स की सरणी होनी "
+"चाहिए।"
+
+#: includes/icc-gg-llm-files-generator-diff-applier.php:74
+msgid "Diff operations entries must be strings."
+msgstr ""
+"डिफ़ ऑपरेशन की "
+"प्रविष्टियाँ स्ट्रिंग्स "
+"होनी चाहिए।"
+
+#: includes/icc-gg-llm-files-generator-diff-applier.php:85
+msgid "The AI returned an empty diff."
+msgstr "AI ने खाली डिफ़ लौटाया।"
+
+#: includes/icc-gg-llm-files-generator-diff-applier.php:104
+msgid "Current file content must be a string."
+msgstr ""
+"वर्तमान फ़ाइल सामग्री "
+"स्ट्रिंग होनी चाहिए।"
+
+#: includes/icc-gg-llm-files-generator-generator.php:311
+msgid "The AI diff produced empty content."
+msgstr ""
+"AI डिफ़ ने खाली सामग्री "
+"उत्पन्न की।"
+
+#. translators: %s: file name
+#: includes/icc-gg-llm-files-generator-generator.php:378
+#, php-format
+msgid ""
+"You maintain the %s file for a WordPress site. You return ONLY strict JSON "
+"describing edits to the existing file."
+msgstr ""
+"आप WordPress साइट के लिए %s फ़ाइल "
+"बनाए रखते हैं। आप मौजूदा "
+"फ़ाइल में किए जाने वाले "
+"संपादनों का वर्णन करने "
+"वाला केवल सख्त JSON लौटाते हैं।"
+
+#: includes/icc-gg-llm-files-generator-generator.php:387
+msgid ""
+"Return ONLY a JSON object with keys \"insert\" (array of strings to add) and "
+"\"remove\" (array of exact strings to delete). Example: {\"insert\":[\"- New "
+"page: Title (https://example.com/page)\"],\"remove\":[\"- Old page: Title "
+"(https://example.com/page)\"]}. Do not include Markdown fences or commentary."
+msgstr ""
+"केवल एक JSON ऑब्जेक्ट लौटाएँ "
+"जिसमें \"insert\" (जोड़ने के लिए "
+"स्ट्रिंग्स की सरणी) और \"remove\" "
+"(हटाने के लिए सटीक "
+"स्ट्रिंग्स की सरणी) "
+"कुंजियाँ हों। उदाहरण: "
+"{\"insert\":[\"- New page: Title "
+"(https://example.com/page)\"],\"remove\":[\"- Old page: Title "
+"(https://example.com/page)\"]}। Markdown फ़ेंस या "
+"टिप्पणियाँ शामिल न करें।"
+
+#: includes/icc-gg-llm-files-generator-generator.php:416
+msgid ""
+"You generate SEO and LLM-friendly plain-text Markdown files for a WordPress "
+"website."
+msgstr ""
+"आप WordPress वेबसाइट के लिए SEO और "
+"LLM-अनुकूल सादा-पाठ Markdown "
+"फ़ाइलें उत्पन्न करते हैं।"
+
+#. translators: %s: file name
+#: includes/icc-gg-llm-files-generator-generator.php:420
+#, php-format
+msgid ""
+"Generate the complete %s file content for the following WordPress site. Use "
+"the llms.txt convention: an H1 site title, a blockquote summary, and "
+"Markdown lists of links with short descriptions."
+msgstr ""
+"निम्न WordPress साइट के लिए %s "
+"फ़ाइल की पूरी सामग्री "
+"उत्पन्न करें। llms.txt परिपाटी "
+"का पालन करें: एक H1 साइट "
+"शीर्षक, एक ब्लॉककोट "
+"सारांश, और संक्षिप्त "
+"विवरण के साथ लिंक की Markdown "
+"सूचियाँ।"
+
+#: includes/icc-gg-llm-files-generator-generator.php:424
+msgid ""
+"Return ONLY the raw file content. Do not include Markdown fences, "
+"explanations or commentary."
+msgstr ""
+"केवल फ़ाइल की मूल सामग्री "
+"लौटाएँ। Markdown फ़ेंस, "
+"स्पष्टीकरण या टिप्पणियाँ "
+"शामिल न करें।"
+
+#: includes/icc-gg-llm-files-generator-generator.php:455
+msgid "The AI API URL is not configured."
+msgstr "AI API URL कॉन्फ़िगर नहीं है।"
+
+#: includes/icc-gg-llm-files-generator-generator.php:462
+msgid "The AI API key is not configured."
+msgstr "AI API कुंजी कॉन्फ़िगर नहीं है।"
+
+#. translators: %s: error message
+#: includes/icc-gg-llm-files-generator-generator.php:492
+#, php-format
+msgid "AI request failed: %s"
+msgstr "AI अनुरोध विफल रहा: %s"
+
+#. translators: 1: HTTP status code, 2: response body
+#: includes/icc-gg-llm-files-generator-generator.php:506
+#, php-format
+msgid "The AI API returned HTTP %1$d: %2$s"
+msgstr "AI API ने HTTP %1$d लौटाया: %2$s"
+
+#: includes/icc-gg-llm-files-generator-generator.php:519
+msgid "The AI API returned a malformed response."
+msgstr ""
+"AI API ने विकृत प्रतिक्रिया "
+"लौटाई।"
+
+#: includes/icc-gg-llm-files-generator-generator.php:550
+msgid "The AI returned invalid JSON operations."
+msgstr "AI ने अमान्य JSON ऑपरेशन लौटाए।"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:117
+#: includes/icc-gg-llm-files-generator-settings-page.php:118
+msgid "LLM Files Generator"
+msgstr "LLM फ़ाइल जनरेटर"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:142
+msgid "File Delivery"
+msgstr "फ़ाइल वितरण"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:149
+msgid "AI Settings"
+msgstr "AI सेटिंग्स"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:209
+msgid "Enable llms.txt"
+msgstr "llms.txt सक्षम करें"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:210
+msgid "Deliver the concise /llms.txt index to visitors and AI agents."
+msgstr ""
+"संक्षिप्त /llms.txt सूचकांक "
+"आगंतुकों और AI एजेंटों को "
+"उपलब्ध कराएँ।"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:215
+msgid "Enable llms-full.txt"
+msgstr "llms-full.txt सक्षम करें"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:216
+msgid "Deliver the full /llms-full.txt content to visitors and AI agents."
+msgstr ""
+"पूरी /llms-full.txt सामग्री "
+"आगंतुकों और AI एजेंटों को "
+"उपलब्ध कराएँ।"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:221
+msgid "AI API URL"
+msgstr "AI API URL"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:222
+msgid ""
+"The OpenAI-compatible chat completions endpoint URL. Leave empty to disable "
+"AI-assisted generation."
+msgstr ""
+"OpenAI-संगत chat completions एंडपॉइंट URL। "
+"AI-सहायता प्राप्त जनरेशन "
+"बंद करने के लिए इसे खाली "
+"छोड़ें।"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:231
+msgid "API Key"
+msgstr "API कुंजी"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:232
+msgid ""
+"The API key used to authenticate with the AI API. Stored in the WordPress "
+"options table."
+msgstr ""
+"AI API के साथ प्रमाणीकरण के "
+"लिए उपयोग की जाने वाली API "
+"कुंजी। WordPress विकल्प तालिका "
+"में संग्रहीत।"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:237
+msgid "Model"
+msgstr "मॉडल"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:238
+msgid "The AI model name used for chat completions."
+msgstr ""
+"chat completions के लिए उपयोग किया "
+"जाने वाला AI मॉडल नाम।"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:334
+msgid "Notes"
+msgstr "टिप्पणियाँ"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:337
+msgid "llms.txt"
+msgstr "llms.txt"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:341
+msgid "llms-full.txt"
+msgstr "llms-full.txt"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:348
+msgid "Last generation warning"
+msgstr "अंतिम जनरेशन चेतावनी"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:356
+msgid ""
+"ICC.gg LLM Files Generator - llms.txt / llms-full.txt Generator for WordPress"
+msgstr ""
+"ICC.gg LLM Files Generator - WordPress के लिए llms.txt / "
+"llms-full.txt जनरेटर"
+
+#. translators: %s: New version number.
+#: includes/icc-gg-llm-files-generator-settings-page.php:374
+#, php-format
+msgid "Update available: v%s"
+msgstr "अपडेट उपलब्ध: v%s"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:467
+msgid "Example"
+msgstr "उदाहरण"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:480
+msgid "Control which generated files are delivered to visitors and AI agents."
+msgstr ""
+"नियंत्रित करें कि कौन-सी "
+"उत्पन्न फ़ाइलें आगंतुकों "
+"और AI एजेंटों को दी जाती हैं।"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:489
+msgid ""
+"Configure an OpenAI-compatible chat completions API to assist with file "
+"generation. Leave the API URL empty to use deterministic generation only."
+msgstr ""
+"फ़ाइल जनरेशन में सहायता "
+"के लिए OpenAI-संगत chat completions API "
+"कॉन्फ़िगर करें। केवल "
+"नियतात्मक जनरेशन उपयोग "
+"करने के लिए API URL खाली छोड़ें।"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:511
+msgid "Security check failed. Please try again."
+msgstr ""
+"सुरक्षा जाँच विफल रही। "
+"कृपया पुनः प्रयास करें।"
+
+#. translators: %s: warning message
+#: includes/icc-gg-llm-files-generator-settings-page.php:538
+#, php-format
+msgid "Files generated using the deterministic fallback. AI warning: %s"
+msgstr ""
+"नियतात्मक फ़ॉलबैक का "
+"उपयोग करके फ़ाइलें "
+"उत्पन्न की गईं। AI चेतावनी: %s"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:549
+msgid "Files generated successfully!"
+msgstr ""
+"फ़ाइलें सफलतापूर्वक "
+"उत्पन्न हुईं!"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:564
+msgid "Generate Files"
+msgstr "फ़ाइलें उत्पन्न करें"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:568
+msgid ""
+"Click the button below to generate (or regenerate) the llms.txt and llms-"
+"full.txt files immediately."
+msgstr ""
+"llms.txt और llms-full.txt फ़ाइलों को "
+"तुरंत उत्पन्न (या पुनः "
+"उत्पन्न) करने के लिए नीचे "
+"दिए गए बटन पर क्लिक करें।"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:572
+msgid "Last updated"
+msgstr "अंतिम बार अपडेट किया गया"
+
+#: includes/icc-gg-llm-files-generator-settings-page.php:578
+msgid "Force Generate/Update Files"
+msgstr ""
+"फ़ाइलें बाध्यतापूर्वक "
+"उत्पन्न/अपडेट करें"
